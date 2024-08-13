@@ -127,7 +127,7 @@ export default function Notifications() {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: '#000000',
+        backgroundColor: '#ffffff',
         padding: 20,
         margin: 8,
         borderRadius: 10,
