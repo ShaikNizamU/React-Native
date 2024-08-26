@@ -32,8 +32,8 @@ const Home = (props: MenuScreenProps) => {
 
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => navigation.navigate('FlatList')}>
-        <Text style={styles.text}>FlatList</Text>
+        onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.text}>Register</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -48,6 +48,17 @@ const Home = (props: MenuScreenProps) => {
         <Text style={styles.text}>Notifications</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigation.navigate('Performance')}>
+        <Text style={styles.text}>Performance</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigation.navigate('WebVeiw')}>
+        <Text style={styles.text}>WebVeiw</Text>
+      </TouchableOpacity>
 
     </View>
   );
