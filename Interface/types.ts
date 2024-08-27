@@ -6,4 +6,6 @@ export type RootStackParamList = {
     Register: undefined;
     Todo: undefined;
     Notifications: undefined;
+    Performance: undefined;
+    WebVeiw: undefined;
 }

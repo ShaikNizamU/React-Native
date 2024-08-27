@@ -4,11 +4,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Home from './Components/Home';
 import Touchable from './Components/Touchable';
-import TextInputs from './Components/TextInput';
+import TextInput from './Components/TextInput';
 import FlatList from './Components/FlatList';
 import Register from './Components/Register';
 import Todo from './Components/Todo';
 import Notifications from './Components/Notifications';
+import Performance from './Components/Performance';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,7 @@ export default function App3() {
             )
         }}
         />
-        <Tab.Screen name="TextInput" component={TextInputs} 
+        <Tab.Screen name="TextInput" component={TextInput} 
         options={{
             tabBarActiveTintColor: '#b5058c',
             tabBarIcon: ({focused, size}) => (
@@ -138,6 +139,25 @@ export default function App3() {
                     />
                 </View>
             )
+        }}
+        />
+        <Tab.Screen 
+        name='Performance'
+        component={Performance}
+        options={{
+          tabBarActiveTintColor: '#b5058c',
+          tabBarIcon: ({focused,size}) => (
+            <View>
+              <Image 
+              source={require('./assets/Performance.png')}
+              style={{
+                width:size,
+                height:size,
+                tintColor:focused? '#b5058c' : 'gray'
+              }}
+              />
+            </View>
+          )
         }}
         />
       </Tab.Navigator>

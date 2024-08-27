@@ -9,7 +9,10 @@ import FlatList from './Components/FlatList';
 import Register from './Components/Register';
 import Todo from './Components/Todo';
 import Home from './Components/Home';
-import Notifications from './Components/Notifications'
+import Notifications from './Components/Notifications';
+import Performance from './Components/Performance'
+import WebVeiw from './Components/WebVeiw';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -135,6 +138,42 @@ export default function App2() {
             drawerIcon:({focused, size}) => (
                 <Image
                 source={require('./assets/Notifications.png')}
+                style={{
+                    width:size,
+                    height:size,
+                    tintColor:focused ? 'orange' : 'gray',
+                }}
+                />
+            )
+        }}
+        />
+        <Drawer.Screen
+          name="Performance"
+          component={Performance}
+          options={{
+            drawerActiveTintColor: 'orange',
+            drawerLabelStyle:{color:'black'},
+            drawerIcon:({focused, size}) => (
+                <Image
+                source={require('./assets/Performance.png')}
+                style={{
+                    width:size,
+                    height:size,
+                    tintColor:focused ? 'orange' : 'gray',
+                }}
+                />
+            )
+        }}
+        />
+         <Drawer.Screen
+          name="WebVeiw"
+          component={WebVeiw}
+          options={{
+            drawerActiveTintColor: 'orange',
+            drawerLabelStyle:{color:'black'},
+            drawerIcon:({focused, size}) => (
+                <Image
+                source={require('./assets/Performance.png')}
                 style={{
                     width:size,
                     height:size,
