@@ -9,6 +9,7 @@ const App = () => {
     { id: '4', title: 'Item 4' },
     { id: '5', title: 'Item 5' },
     { id: '6', title: 'Item 6' },
+    { id: '7', title: 'Item 7' },
     
   ];
 
