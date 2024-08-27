@@ -10,7 +10,6 @@ const App = () => {
     { id: '5', title: 'Item 5' },
     { id: '6', title: 'Item 6' },
     { id: '7', title: 'Item 7' },
-    { id: '8', title: 'Item 8' },
     
   ];
 
