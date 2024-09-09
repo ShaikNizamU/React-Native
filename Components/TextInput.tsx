@@ -1,11 +1,24 @@
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
-import {} from 'react-native-gesture-handler';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Button} from 'react-native';
+import React, {useState, useCallback, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function TextInputs() {
+export default function TextInputs({route}) {
+  const [receive,setReceive] = useState(route.params?.pass || '')
+  const [inputText, setInputText] = useState('');
+  
   const [data, setData] = useState('');
   const [storedData, setStoredData] = useState([]);
+
+
+  useFocusEffect(
+    useCallback(() => {
+      if (route.params?.pass) {
+        setReceive(route.params.pass);
+      }
+    }, [route.params?.pass])
+  );
+
 
   let names: any = [];
 
@@ -15,7 +28,7 @@ export default function TextInputs() {
       await AsyncStorage.setItem('Data', JSON.stringify(data));
       console.log('Saved');
     } catch (e) {
-      // save error
+      console.log(e)
     }
   };
 
@@ -29,7 +42,7 @@ export default function TextInputs() {
       }
       console.log('name: ' + name);
     } catch (e) {
-      // save error
+      console.log(e)
     }
   };
 
@@ -44,37 +57,69 @@ export default function TextInputs() {
   };
 
 
+  const handleTextInputChange = (text) => {
+    setInputText(text); // Update TextInput state
+    setReceive(text); // Update receive state for displaying in Text component
+  };
+
+  // const passDataBack = () => {
+  //   navigation.navigate('PreviousScreenName', {updatedData: recieve}); // Replace 'PreviousScreenName' with your screen name
+  // };
+
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter name"
-        value={data}
-        onChangeText={text => setData(text)}
-      />
 
-      <Text>{storedData}</Text>
+    <View  style={styles.container}>
 
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => {
-          saveData();
-        }}>
-        <Text style={styles.text}>Save Data</Text>
-      </TouchableOpacity>
+      {/* Tesing data */}
+      <View style={styles.container}>
+        <Text style={{color:"#000", fontSize:18, fontWeight:"bold"}}>Data Passing between Screens</Text>
+        <Text>Parent Data: {receive}</Text>
+        <TextInput 
+          style={styles.input}
+          placeholder="Update name"
+          value={inputText}
+          onChangeText={handleTextInputChange}
+        />
+        {/* <Button 
+          title='pass to parent'
+          // onPress={passDataBack}
+        /> */}
+      </View>
 
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => {
-          getData();
-        }}>
-        <Text style={styles.text}>Get Data</Text>
-      </TouchableOpacity>
 
-      <TouchableOpacity style={styles.btn} onPress={() => removeData()}>
-        <Text style={styles.text}>Remove Data</Text>
-      </TouchableOpacity>
+      {/* Asynch Storage */}
+      <View style={styles.container}>
+      <Text style={{color:"#000", fontSize:18, fontWeight:"bold"}}>AsyncStorage</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter name"
+          value={data}
+          onChangeText={text => setData(text)}
+        />
+
+        <Text>{storedData}</Text>
+
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => {
+            saveData();
+          }}>
+          <Text style={styles.text}>Save Data</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => {
+            getData();
+          }}>
+          <Text style={styles.text}>Get Data</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.btn} onPress={() => removeData()}>
+          <Text style={styles.text}>Remove Data</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -84,9 +129,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    margin:10,
   },
   input: {
-    height: 50,
+    height: 40,
     width: '80%',
     margin: 12,
     borderWidth: 1,

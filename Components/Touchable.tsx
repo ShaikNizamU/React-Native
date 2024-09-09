@@ -6,7 +6,6 @@ import {Dimensions} from 'react-native';
 const screenHeight = Dimensions.get('window').height;
 
 
-
 export default function Touchable() {
 
   const [count, setCount] = useState(0);

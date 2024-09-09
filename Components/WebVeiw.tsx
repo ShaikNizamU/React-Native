@@ -42,7 +42,7 @@ export default function MyWebView() {
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>
         <WebView
-          source={{uri: 'https://www.knowvo.in/'}}
+          source={{uri: 'https://reactnative.dev/docs/environment-setup'}}
           ref={WebViewRef}
           onNavigationStateChange={navState => {
             setCanGoBack(navState.canGoBack);
