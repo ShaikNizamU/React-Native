@@ -1,0 +1,1202 @@
+//RouteItems
+import * as React from 'react';
+import {Image, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import HomeFocus from '../assets/home-focus.png';
+import Home from '../assets/home.png';
+import PerfFocus from '../assets/perf-focus.png';
+import Perf from '../assets/perf.png';
+import TimeTableFocus from '../assets/tt-focus.png';
+import TimeTable1 from '../assets/schedule.png';
+import CustomImage4 from '../assets/profileBottom.png';
+import ProfilePhoto from '../screens/ProfilePhoto';
+import {COLORS} from '../common/colors';
+
+export const screens = {
+  Home1: 'Home1',
+  ProfileScreen: 'Profile',
+  Dashboard: 'Home ',
+  Notifications: 'Notifications',
+  PerformanceMain: 'Performance',
+  TimeTableMain: 'Timetable',
+  AttendanceMain: 'Attendance',
+  PaymentsMain: 'Fees',
+  Diary: 'Digital Diary',
+  EStore: 'e-Store',
+  EStorePaymentScreen: 'e-Store Products',
+  Noticeboard: 'Noticeboard',
+  TransportationScreen: 'Transportation',
+  Feedback: 'Feedback',
+  FeePaymentScreen: 'Fee Payment',
+  Vedantu: 'Vedantu',
+  Learn: 'Learn',
+  ContactUs: 'Contact Us',
+};
+const styles = StyleSheet.create({
+  profilePhotoStyle: {
+    height: 40,
+    width: 40,
+  },
+  bottomTabsIcons: {
+    width: 25,
+    height: 25,
+    marginTop: 20,
+    marginBottom: 15,
+  },
+  bottomTabHomeIcons: {
+    width: 25,
+    height: 25,
+    marginTop: 20,
+    marginBottom: 15,
+    marginRight: 3.5,
+  },
+  bottomTabsProfileIcons: {
+    width: 35,
+    height: 35,
+    marginTop: 20,
+    marginBottom: 15,
+    borderRadius: 80,
+  },
+  bottomTabTitle: {
+    color: 'red', // Change this to the desired text color
+  },
+});
+
+export const routes = [
+  {
+    name: screens.ProfileScreen,
+    focusedRoute: screens.ProfileScreen,
+    title: 'Profile',
+    showInTab: true,
+    showInDrawer: false,
+    icon: () => <ProfilePhoto />,
+  },
+
+  {
+    name: screens.Dashboard,
+    focusedRoute: screens.Dashboard,
+    title: 'Home ',
+    showInTab: true,
+    showInDrawer: true,
+    icon: (focused: any) =>
+      focused ? (
+        <Image source={HomeFocus} style={styles.bottomTabHomeIcons} />
+      ) : (
+        <Image source={Home} style={styles.bottomTabHomeIcons} />
+      ),
+  },
+
+  {
+    name: screens.TimeTableMain,
+    focusedRoute: screens.TimeTableMain,
+    title: 'Timetable',
+    showInTab: true,
+    showInDrawer: true,
+    icon: (focused: any) =>
+      focused ? (
+        <Image source={TimeTableFocus} style={styles.bottomTabsIcons} />
+      ) : (
+        <Image source={TimeTable1} style={styles.bottomTabsIcons} />
+      ),
+  },
+
+  {
+    name: screens.AttendanceMain,
+    focusedRoute: screens.AttendanceMain,
+    title: 'Attendance',
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.Noticeboard,
+    focusedRoute: screens.Noticeboard,
+    title: 'Notice Board',
+    showInTab: false,
+    showInDrawer: true,
+    icon: () => <Image source={CustomImage4} style={styles.bottomTabsIcons} />,
+  },
+
+  {
+    name: screens.Diary,
+    focusedRoute: screens.Diary,
+    title: 'Digital Diary',
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.Learn,
+    focusedRoute: screens.Learn,
+    title: 'Learn',
+    showInTab: false,
+    showInDrawer: true,
+  },
+
+  {
+    name: screens.Vedantu,
+    focusedRoute: screens.Vedantu,
+    title: 'Vedantu',
+    showInTab: false,
+    showInDrawer: true,
+  },
+
+  {
+    name: screens.PerformanceMain,
+    focusedRoute: screens.PerformanceMain,
+    title: 'Performance',
+    showInTab: true,
+    showInDrawer: true,
+    icon: (focused: any) =>
+      focused ? (
+        <Image source={PerfFocus} style={styles.bottomTabsIcons} />
+      ) : (
+        <Image source={Perf} style={styles.bottomTabsIcons} />
+      ),
+  },
+
+  {
+    name: screens.PaymentsMain,
+    focusedRoute: screens.PaymentsMain,
+    title: 'Fees and Payments',
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.TransportationScreen,
+    focusedRoute: screens.TransportationScreen,
+    title: 'Transportation',
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.Notifications,
+    focusedRoute: screens.Notifications,
+    title: 'Notifications',
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.EStore,
+    focusedRoute: screens.EStore,
+    title: 'e-Store',
+
+    showInTab: false,
+    showInDrawer: true,
+    icon: (focused: any) => (
+      <Icon name="home" size={30} color={focused ? '#551E18' : '#000'} />
+    ),
+  },
+
+  {
+    name: screens.EStorePaymentScreen,
+    focusedRoute: screens.EStorePaymentScreen,
+    title: 'e-Store Products',
+    showInTab: false,
+    showInDrawer: false,
+  },
+  {
+    name: screens.FeePaymentScreen,
+    focusedRoute: screens.FeePaymentScreen,
+    title: 'Fee Payment',
+    showInTab: false,
+    showInDrawer: false,
+  },
+  {
+    name: screens.ContactUs,
+    focusedRoute: screens.ContactUs,
+    title: 'Contact Us',
+    showInTab: false,
+    showInDrawer: true,
+  },
+  {
+    name: screens.Feedback,
+    focusedRoute: screens.Feedback,
+    title: 'Feedback',
+    showInTab: false,
+    showInDrawer: true,
+  },
+];
+
+
+//Drawer
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+} from '@react-navigation/drawer';
+import React, {createRef, useEffect, useState} from 'react';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Linking,
+  Platform,
+  Modal,
+} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {COLORS} from '../common/colors';
+import BottomTabNavigator from './BottomTabNavigator';
+import {routes, screens} from './RouteItems';
+import {useNavigation} from '@react-navigation/native';
+import DashboardIcon from '../assets/dashboard.png';
+import VedantuIcon from '../assets/vedantu-logo.png';
+import ContactUsIcon from '../assets/ContactUsIcon.png';
+import LearnIcon from '../assets/learn-logo.png';
+import NotificationsIcon from '../assets/notifications.png';
+import PerformanceIcon from '../assets/performance.png';
+import TimetableIcon from '../assets/timetable.png';
+import AttendanceIcon from '../assets/attendance1.png';
+import PaymentIcon from '../assets/payment.png';
+import DiaryIcon from '../assets/bookmark.png';
+import EstoreIcon from '../assets/estore.png';
+import TransportIcon from '../assets/bus.png';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {STRINGS} from '../common/strings';
+import PaymentHistoryDownload from '../screens/PaymentHistoryDownload';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import NetworkCalls from '../networking/NetworkCalls';
+import {ProfilePhotoModel} from '../models/ProfilePhotoModel';
+import ImageFullView from '../screens/ImageFullView';
+import VideoFullView from '../screens/VideoFullView';
+import WordDocumentViewer from '../screens/WordDocumentViewer';
+import AuthStack from './AuthStack';
+import {ProfileModel} from '../models/ProfileModel';
+import PaymentSuccess from '../screens/PaymentSuccess';
+import PaymentFailed from '../screens/PaymentFailed';
+import AppUtils from '../utils/AppUtils';
+import Students from '../screens/Students';
+import Feedback from '../screens/Feedback';
+import {Rating} from 'react-native-elements';
+import Dashboard from '../screens/Dashboard/dashboard1';
+import {AppConstants} from '../common/AppContants';
+import FeedbackIcon from '../assets/feedbackIcon.png';
+import NoticeboardIcon from '../assets/noticeboardIcon.png';
+import PaymentWebView from '../screens/PaymentWebView';
+import FeePaymentScreen from '../screens/FeePaymentScreen';
+import Vedantu from '../screens/Vedantu';
+import ContactUs from '../screens/ContactUs';
+import Learn from '../screens/Learn';
+import EStoreOrderDetail from '../screens/EStore/EStoreOrderDetail';
+import WordDocumentViewerEStore from '../screens/EStore/WordDocumentViewerEStore';
+import EStoreOrderReport from '../screens/EStore/EStoreOrderReport';
+
+const Drawer = createDrawerNavigator();
+
+const CustomDrawerContent = props => {
+  // const showIndicator: boolean = props.showIndicator;
+  const [data, setData] = useState<ProfileModel>();
+  // const [unreadNotificationCount, setUnreadNotificationCount] =
+  //   useState<UnreadNotificationCountModel>();
+  const currentRouteName = props.nav()?.getCurrentRoute().name;
+  const [profilePhotoUrl, setProfilePhotoUrl] = useState<ProfilePhotoModel>();
+  const navigation = useNavigation();
+  let profileModel: ProfileModel;
+  useEffect(() => {
+    getProfilePhoto();
+    // getProfile();
+    checkForCachedData();
+    getUnreadNotificationCount();
+    // const interval = setInterval(() => {
+    //   getUnreadNotificationCount();
+    //   console.log(
+    //     'Progress Indicator called with progress:',
+    //     unreadNotificationCount,
+    //   );
+    // }, 60000);
+    // return () => {
+    //   clearInterval(interval);
+    // };
+  }, []);
+
+  const getUnreadNotificationCount = () => {
+    AsyncStorage.getItem('student_data').then(value => {
+      if (value) {
+        const value1 = JSON.parse(value);
+        NetworkCalls.getInstance()
+          .getUnreadNotificationCount(value1.userUniqueId)
+          .then(response => {
+            if (response.data != null && response.data !== '') {
+              setUnreadNotificationCount(response.data);
+            }
+          });
+      }
+    });
+  };
+
+  // const getProfile = () => {
+  //   NetworkCalls.getInstance()
+  //     .getProfile()
+  //     .then(response => {
+  //       if (response.data != null && response.data !== '') {
+  //         profileModel = response.data;
+  //         setData(response.data);
+  //       }
+  //     });
+  // };
+
+  const checkForCachedData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(AppConstants.PROFILE_SCREEN);
+      if (jsonValue !== null) {
+        profileModel = JSON.parse(jsonValue);
+
+        setData(profileModel);
+      }
+      getProfile();
+    } catch (error) {
+      console.error('Error checking for cached data:', error);
+    }
+  };
+
+  const getProfile = () => {
+    NetworkCalls.getInstance()
+      .getProfile()
+      .then(response => {
+        if (response.data != null && response.data !== '') {
+          profileModel = response.data;
+          setData(profileModel);
+          if (!AppUtils.isEqual(profileModel, data)) {
+            setData(profileModel);
+
+            AppUtils.saveDataToStorage(
+              AppConstants.PROFILE_SCREEN,
+              profileModel,
+            );
+          } else {
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const setProfilePhoto = async (value: string) => {
+    try {
+      await AsyncStorage.setItem('profile_photo', JSON.stringify(value));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getProfilePhoto = () => {
+    AsyncStorage.getItem('student_data').then(value => {
+      if (value) {
+        const value1 = JSON.parse(value);
+        NetworkCalls.getInstance()
+          .getProfilePhoto(value1.userUniqueId)
+          .then(response => {
+            if (response.data != null && response.data !== '') {
+              setProfilePhotoUrl(response.data);
+              setProfilePhoto(response.data);
+            }
+          });
+      }
+    });
+  };
+
+  const openDialScreen = () => {
+    let number = '';
+    if (Platform.OS === 'ios') {
+      number = 'telprompt:${07353599599}';
+    } else {
+      number = 'tel:${07353599599}';
+    }
+    Linking.openURL(number);
+  };
+
+  const openMailScreen = () => {
+    let mailId = '';
+    if (Platform.OS === 'ios') {
+      mailId = 'mailto:support@knowvo.io';
+    } else {
+      mailId = 'mailto:support@knowvo.io';
+    }
+    Linking.openURL(mailId);
+  };
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.menuHeader}>
+        {profilePhotoUrl?.URL === null ||
+        profilePhotoUrl?.URL === '' ||
+        profilePhotoUrl?.URL === undefined ? (
+          <Image
+            source={require('../assets/profile.png')}
+            style={styles.profilePhotoStyle}
+          />
+        ) : (
+          <Image
+            source={{uri: `${profilePhotoUrl?.URL}`}}
+            style={styles.profilePhotoStyle}
+          />
+        )}
+        <View
+          style={{
+            justifyContent: 'center',
+            width: 150,
+          }}>
+          <Text
+            style={{
+              fontWeight: '700',
+              color: COLORS.lavender,
+              fontSize: 18,
+              // alignSelf: 'center',
+            }}>
+            {data?.fullName}
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}
+            style={styles.profileButtonStyle}>
+            <Text style={styles.profileButtonText}>{STRINGS.viewProfile}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <DrawerContentScrollView
+        contentContainerStyle={{paddingTop: 0}}
+        {...props}>
+        {routes
+          .filter(route => route.showInDrawer)
+          .map(route => {
+            const focusedRouteItem = routes.find(
+              r => r.name === currentRouteName,
+            ); // get route item config object
+            const focused = focusedRouteItem
+              ? route.name === focusedRouteItem?.focusedRoute
+              : route.name === screens.Home1;
+            const HomeFocus = route.name === 'Home ' ? true : false;
+            const NotificationsFocus =
+              route.name === 'Notifications' ? true : false;
+            const PerformanceFocus =
+              route.name === 'Performance' ? true : false;
+            const TimeTableFocus = route.name === 'Timetable' ? true : false;
+            const FeedbackFocus = route.name === 'Feedback' ? true : false;
+            const AttendanceFocus = route.name === 'Attendance' ? true : false;
+            const PaymentsFocus = route.name === 'Fees' ? true : false;
+            const DiaryFocus = route.name === 'Digital Diary' ? true : false;
+            const EStoreFocus = route.name === 'e-Store' ? true : false;
+            const VedantuFocus = route.name === 'Vedantu' ? true : false;
+            const ContactUsFocus = route.name === 'Contact Us' ? true : false;
+
+            const NoticeBoardFocus =
+              route.name === 'Noticeboard' ? true : false;
+            const TransportFocus =
+              route.name === 'Transportation' ? true : false;
+            return (
+              <DrawerItem
+                key={route.name}
+                label={() => (
+                  <View style={{flexDirection: 'row'}}>
+                    <Text
+                      style={
+                        focused && NotificationsFocus
+                          ? styles.drawerLabelFocused
+                          : focused && PerformanceFocus
+                          ? styles.drawerLabelFocused
+                          : styles.drawerLabel
+                      }>
+                      {route.title}
+                    </Text>
+                  </View>
+                )}
+                onPress={() => {
+                  props.navigation.navigate(route.name);
+                }}
+                style={[
+                  focused && NotificationsFocus
+                    ? styles.drawerNotificationsFocus
+                    : focused && PerformanceFocus
+                    ? styles.drawerPerformanceFocus
+                    : focused && NoticeBoardFocus
+                    ? styles.drawerNoticeBoardFocus
+                    : focused && TimeTableFocus
+                    ? styles.drawerTimeTableFocus
+                    : focused && AttendanceFocus
+                    ? styles.drawerAttendanceFocus
+                    : focused && PaymentsFocus
+                    ? styles.drawerPaymentsFocus
+                    : focused && DiaryFocus
+                    ? styles.drawerDiaryFocus
+                    : focused && EStoreFocus
+                    ? styles.drawerEStoreFocus
+                    : focused && HomeFocus
+                    ? styles.drawerHomeFocus
+                    : focused && TransportFocus
+                    ? styles.drawerTransportationFocus
+                    : focused && FeedbackFocus
+                    ? styles.drawerFeedbackFocus
+                    : focused && VedantuFocus
+                    ? styles.drawerVedantuFocus
+                    : focused && ContactUsFocus
+                    ? styles.drawerFeedbackFocus
+                    : styles.drawerItemNotFocused,
+                ]}
+                icon={() => {
+                  if (route.title === 'Home ') {
+                    return (
+                      <Image
+                        source={DashboardIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Notice Board') {
+                    return (
+                      <Image
+                        source={NoticeboardIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Notifications') {
+                    return (
+                      <Image
+                        source={NotificationsIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Performance') {
+                    return (
+                      <Image
+                        source={PerformanceIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Timetable') {
+                    return (
+                      <Image
+                        source={TimetableIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Attendance') {
+                    return (
+                      <Image
+                        source={AttendanceIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Fees and Payments') {
+                    return (
+                      <Image
+                        source={PaymentIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Digital Diary') {
+                    return (
+                      <Image
+                        source={DiaryIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'e-Store') {
+                    return (
+                      <Image
+                        source={EstoreIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Transportation') {
+                    return (
+                      <Image
+                        source={TransportIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Feedback') {
+                    return (
+                      <Image
+                        source={FeedbackIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Vedantu') {
+                    return (
+                      <Image
+                        source={VedantuIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Learn') {
+                    return (
+                      <Image
+                        source={LearnIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                  if (route.title === 'Contact Us') {
+                    return (
+                      <Image
+                        source={ContactUsIcon}
+                        style={{width: 30, height: 30}}
+                      />
+                    );
+                  }
+                }}
+              />
+            );
+          })}
+      </DrawerContentScrollView>
+    </SafeAreaView>
+  );
+};
+
+const DrawerNavigator = ({nav, parentNavigator}) => {
+  const navigation = useNavigation();
+  const [unreadNotificationCount, setUnreadNotificationCount] = useState(0);
+
+  // useEffect(() => {
+  //   getUnreadNotificationCount();
+  // }, []);
+
+  useEffect(() => {
+    getUnreadNotificationCount();
+
+    const interval = setInterval(() => {
+      getUnreadNotificationCount();
+    }, 60 * 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const getUnreadNotificationCount = () => {
+    AsyncStorage.getItem('student_data').then(value => {
+      if (value) {
+        const value1 = JSON.parse(value);
+        NetworkCalls.getInstance()
+          .getUnreadNotificationCount(value1.userUniqueId)
+          .then(response => {
+            if (response.data != null && response.data !== '') {
+              setUnreadNotificationCount(response.data);
+            }
+          });
+      }
+    });
+  };
+
+  return (
+    <Drawer.Navigator
+      screenOptions={() => ({
+        title: nav()?.getCurrentRoute().name,
+        headerStyle: {borderBottomWidth: 1, borderBottomColor: COLORS.grey},
+      })}
+      drawerContent={props => {
+        return <CustomDrawerContent {...props} nav={nav} />;
+      }}>
+      <Drawer.Screen
+        name={'Home'}
+        component={BottomTabNavigator}
+        initialParams={{parentNavigator}}
+        options={{
+          headerRight: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.navigate('e-Store')}>
+                <Image
+                  source={require('../assets/shopping-bag.png')}
+                  style={styles.iconStyle2}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Notifications')}>
+                {unreadNotificationCount > 0 ? (
+                  <Image
+                    source={require('../assets/bellWithRedDot.png')}
+                    style={styles.iconStyle3}
+                  />
+                ) : (
+                  <Image
+                    source={require('../assets/bell.png')}
+                    style={styles.iconStyle3}
+                  />
+                )}
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
+      {/* <Drawer.Screen
+        options={{headerShown: false}}
+        name="Welcome"
+        component={AuthStack}
+      /> */}
+      <Drawer.Screen
+        name={'Payment History Download'}
+        component={PaymentHistoryDownload}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          headerTitleStyle: {
+            color: 'transparent',
+          },
+          headerStyle: {},
+          unmountOnBlur: true,
+        }}
+        name={'imageFullView'}
+        component={ImageFullView}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          headerTitleStyle: {
+            color: COLORS.black,
+          },
+          headerStyle: {},
+          unmountOnBlur: true,
+        }}
+        name={'videoFullView'}
+        component={VideoFullView}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name={'wordDocumentViewer'}
+        component={WordDocumentViewer}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          unmountOnBlur: true,
+        }}
+        name={'WordDocumentViewerEStore'}
+        component={WordDocumentViewerEStore}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name={'paymentSuccess'}
+        component={PaymentSuccess}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name={'Fee Payment'}
+        component={FeePaymentScreen}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: false,
+          unmountOnBlur: true,
+          gestureHandlerProps: {enabled: false},
+        }}
+        name={'Vedantu'}
+        component={Vedantu}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: false,
+          unmountOnBlur: true,
+          gestureHandlerProps: {enabled: false},
+        }}
+        name={'Learn'}
+        component={Learn}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: false,
+          unmountOnBlur: true,
+          gestureHandlerProps: {enabled: false},
+        }}
+        name={'Contact Us'}
+        component={ContactUs}
+      />
+
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name={'paymentFailed'}
+        component={PaymentFailed}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name={'paymentWebView'}
+        component={PaymentWebView}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <View style={styles.headerRight}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('e-Store', {tab: 'Order History'})
+                }>
+                <Image
+                  source={require('../assets/left-out.png')}
+                  style={styles.iconStyle3}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          unmountOnBlur: true,
+        }}
+        name="EStoreOrderDetail"
+        component={EStoreOrderDetail}
+      />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          unmountOnBlur: true,
+        }}
+        name="EStoreOrderReport"
+        component={EStoreOrderReport}
+      />
+    </Drawer.Navigator>
+  );
+};
+const styles = StyleSheet.create({
+  drawerItem: {
+    color: COLORS.black,
+  },
+  drawerItemFocused: {
+    backgroundColor: COLORS.white,
+  },
+  drawerItemNotFocused: {
+    backgroundColor: COLORS.white,
+  },
+  drawerHomeFocus: {
+    backgroundColor: COLORS.cyanBlueLight,
+  },
+  drawerNoticeBoardFocus: {
+    backgroundColor: COLORS.cyanBlueLight,
+  },
+  drawerNotificationsFocus: {
+    backgroundColor: '#FFC14D29',
+  },
+  drawerPerformanceFocus: {
+    backgroundColor: '#FFE4E8BF',
+  },
+  drawerTimeTableFocus: {
+    backgroundColor: COLORS.whiteBlue,
+  },
+  drawerAttendanceFocus: {
+    backgroundColor: COLORS.whiteOrange,
+  },
+  drawerPaymentsFocus: {
+    backgroundColor: '#E1F5F7A1',
+  },
+  drawerDiaryFocus: {
+    backgroundColor: COLORS.lighterOrange,
+  },
+  drawerEStoreFocus: {
+    backgroundColor: COLORS.whiteBlue,
+  },
+  drawerTransportationFocus: {
+    backgroundColor: COLORS.lighterOrange,
+  },
+  drawerFeedbackFocus: {
+    backgroundColor: COLORS.whiteBlue,
+  },
+  drawerVedantuFocus: {
+    backgroundColor: COLORS.whiteOrange,
+  },
+  drawerLabelFocused: {
+    color: COLORS.black,
+  },
+  drawerLabel: {
+    color: COLORS.black,
+  },
+  profilePhotoStyle: {
+    height: 80,
+    width: 80,
+    borderRadius: 80,
+    borderWidth: 0.5,
+    borderColor: COLORS.black,
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+  },
+  iconStyle2: {
+    height: 26,
+    width: 26,
+    marginHorizontal: 10,
+    marginBottom: 2,
+    marginLeft: 'auto',
+  },
+  iconStyle3: {
+    height: 28,
+    width: 28,
+    marginTop: 2,
+    marginHorizontal: 10,
+  },
+  menuHeader: {
+    flexDirection: 'row',
+    marginVertical: 20,
+    justifyContent: 'space-evenly',
+    marginHorizontal: 10,
+  },
+  profileButtonStyle: {
+    borderRadius: 30,
+    borderWidth: 1.5,
+    padding: 2,
+    borderColor: COLORS.lavender,
+    marginVertical: 8,
+    width: 100,
+    alignItems: 'center',
+    // alignSelf: 'center',
+  },
+  profileButtonText: {
+    fontWeight: '500',
+    color: COLORS.lavender,
+    fontSize: 14,
+  },
+});
+
+export default DrawerNavigator;
+
+
+//Bottom
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React, {createRef} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import AttendanceMain from '../screens/AttendanceMain';
+import Dashboard from '../screens/Dashboard/dashboard1';
+import Diary from '../screens/Diary';
+import EStore from '../screens/EStore/EStore';
+import EStorePaymentScreen from '../screens/EStore/EStorePaymentScreen';
+import NoticeBoard from '../screens/NoticeBoard';
+import Notifications from '../screens/Notifications';
+import PaymentsMain from '../screens/PaymentsMain';
+import PerformanceMain from '../screens/PerformanceMain';
+import ProfileScreen from '../screens/ProfileScreen';
+import TimeTableMain from '../screens/TimeTableMain';
+import Transportation from '../screens/transportation';
+import Feedback from '../screens/Feedback';
+import {routes, screens} from './RouteItems';
+import {COLORS} from '../common/colors';
+import Animated, {FadeIn} from 'react-native-reanimated';
+
+const Tab = createBottomTabNavigator();
+const tabOptions = ({route}) => {
+  const item = routes.find(routeItem => routeItem.name === route.name);
+  if (!item.showInTab) {
+    // hide this tab
+    return {
+      tabBarHideOnKeyboard: true,
+      tabBarButton: () => <View style={{width: 0}} />,
+      headerShown: false,
+
+      tabBarStyle: styles.tabContainer,
+      title: item.title,
+    };
+  }
+
+  return {
+    tabBarHideOnKeyboard: true,
+    tabBarIcon: ({focused}) => item.icon(focused),
+    tabBarLabel: () => (
+      <Text style={styles.tabBarLabel}>{item.title || ''}</Text>
+    ),
+
+    headerShown: false,
+    title: item.title,
+    tabBarStyle: styles.tabContainer,
+  };
+};
+
+const BottomTabNavigator = ({route}) => {
+  const {parentNavigator} = route.params;
+  return (
+    <Tab.Navigator screenOptions={tabOptions}>
+      <Tab.Screen name={screens.Dashboard} component={Dashboard} />
+      <Tab.Screen name={screens.Noticeboard} component={NoticeBoard} />
+      <Tab.Screen name={screens.Notifications} component={Notifications} />
+      <Tab.Screen name={screens.PerformanceMain} component={PerformanceMain} />
+      <Tab.Screen name={screens.TimeTableMain} component={TimeTableMain} />
+      <Tab.Screen name={screens.AttendanceMain} component={AttendanceMain} />
+      <Tab.Screen
+        options={{
+          unmountOnBlur: true,
+        }}
+        name={screens.PaymentsMain}
+        component={PaymentsMain}
+      />
+      <Tab.Screen name={screens.Diary} component={Diary} />
+      <Tab.Screen
+        options={{
+          unmountOnBlur: true,
+        }}
+        name={screens.Feedback}
+        component={Feedback}
+      />
+      <Tab.Screen
+        // options={{
+        //   unmountOnBlur: true,
+        // }}
+        name={screens.EStore}
+        component={EStore}
+      />
+      <Tab.Screen
+        initialParams={{parentNavigator}}
+        name={screens.ProfileScreen}
+        component={ProfileScreen}
+      />
+      <Tab.Screen
+        options={{
+          unmountOnBlur: true,
+        }}
+        name={screens.EStorePaymentScreen}
+        component={EStorePaymentScreen}
+      />
+      <Tab.Screen
+        name={screens.TransportationScreen}
+        component={Transportation}
+        options={{
+          unmountOnBlur: true,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const styles = StyleSheet.create({
+  tabContainer: {
+    backgroundColor: COLORS.white,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    paddingBottom: 22,
+    height: 86,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 10,
+      height: 10,
+    },
+    shadowOpacity: 2.25,
+    shadowRadius: 10,
+    elevation: 10,
+  },
+  tabBarLabel: {
+    color: COLORS.black,
+  },
+});
+
+export default BottomTabNavigator;
