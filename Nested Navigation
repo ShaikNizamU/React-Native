@@ -1,3 +1,5 @@
+Flipper : https://github.com/facebook/flipper/releases/tag/v0.233.0
+
 //RouteItems
 import * as React from 'react';
 import {Image, StyleSheet} from 'react-native';
